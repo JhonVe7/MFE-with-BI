@@ -96,11 +96,6 @@
                 </div>
             </div> 
             <!--Periodo de gracia muerto-->
-            <!--
-            <div class="input-group mb-3">
-                <h3 class="title2">Credito con periodo de gracia muerto </h3>
-            </div>
-            -->
             
             <div class="container">
                 <div class="row">
@@ -128,5 +123,139 @@
                      </div>
                 </div>
               </div>
+              <!--Inicio de seccion-->
+              <section>
+                <div class="container">
+                    
+                    <!--botones-->
+                    <div >
+                        <input type= "button" value= "Nueva factura" onclick="selectFunction()">
+                        <input type= "button" value= "Anular" onclick="selectFunction()">
+                        <input type= "button" value= "Imprimir" onclick="selectFunction()">
+                        <input type= "button" value= "Generar Cobranza" onclick="selectFunction()">
+                    </div>
+
+                    <!--menu de consulta-->
+                    
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" placeholder="Nombres del cliente" class="form-control" id="e-anual" aria-describedby="basic-addon3">
+                        </div>
+                        <div class="col">
+                            <input type="text" placeholder="N° de Documento" class="form-control" id="nom-anual" aria-describedby="basic-addon3">
+                        </div>
+                        <div class="col">
+                            <input type="text" placeholder="Orden de compra"  class="form-control" id="periodo-vencido" aria-describedby="basic-addon3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            
+                            <form class="form-control" action="" method="">
+                                Fecha de facturación
+                                <input type="date"> 
+                            </form>
+                        </div>
+                        <div class="col">
+                            fecha limite de pago
+                            <form  class="form-control" action="" method="">
+                                <input type="date"> 
+                            </form>
+                        </div>
+                        
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="seleccion_credito"  name="Credito" >
+                            <option value="cuota-select" >Seleccionar medio de pago</option>
+                            <option value="cuota-fija">Credito con Cuota fija</option>
+                            <option value="cuota-gracia">Credito con periodo de gracia Muerto</option>  
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            Nombre del cliente 
+                        </div>
+                        <div class="col">
+                            N° de Documento
+                        </div>
+                        <div class="col">
+                            Orden de compra
+                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text"  class="form-control" id="e-anual" aria-describedby="basic-addon3">
+                        </div>
+                        <div class="col">
+                            <input type="text"  class="form-control" id="nom-anual" aria-describedby="basic-addon3">
+                        </div>
+                        <div class="col">
+                            <input type="text"  class="form-control" id="periodo-vencido" aria-describedby="basic-addon3">
+                        </div>
+                    </div>
+                  </div>
+              </section>
+               <!--fin de seccion-->
+              <section class="u-clearfix u-section-1" id="sec-cf56">
+                <div class="u-clearfix u-sheet u-sheet-1">   
+                  <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                    <table class="u-table-entity">
+                      <colgroup>
+                        <col width="16.6%">
+                        <col width="16.6%">
+                        <col width="16.6%">
+                        <col width="17%">
+                        <col width="16.6%">
+                        <col width="16.6%">
+                      </colgroup>
+                      <thead class="u-palette-4-base u-table-header u-table-header-1">
+                        <tr style="height: 21px;">
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Codigo</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Detalles</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Proceso</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Costo</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Descuento%</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Importe</th>
+                        </tr>
+                      </thead>
+                      <tbody class="u-table-body">
+                        <tr style="height: 75px;">
+                          <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-7">PL-001</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">analisis celulares con indices de bacterias</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">hemograma</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">259.000.00</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">0.0%</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell"> 259.000.00</td>
+                        </tr>
+                        <tr style="height: 76px;">
+                          <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-13">PL-002</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">Detecion de infecciones</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">urianalisis&nbsp;</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">49.000.00</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">0.0%</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell"> 49.000.00</td>
+                        </tr>
+                        <tr style="height: 76px;">
+                          <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-19">pL-003</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">cantidad de urea en la sangre</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">perfil renal</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">19.000.00</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">0.0%</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell"> 19.000.00</td>
+                        </tr>
+                        <tr style="height: 76px;">
+                          <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-25"></td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
     </body>
 </html>
