@@ -1,0 +1,85 @@
+*   {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    }
+ 
+img {
+ border: 9px double green  ;
+
+ 
+}
+.center{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+}
+/**/
+.title{
+
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    color:green;
+    
+}
+.title2{
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+    text-shadow: 5px 5px 5px green;
+}
+.form1{
+    padding-top: 5%;
+    padding-block:5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    align-content: center;
+    width: 1000px;
+    border: 3px 3px #000;
+    background: rgb(17,79,4);   
+    background: linear-gradient(180deg, rgba(17,79,4,1) 0%, rgba(44,153,29,1) 73%, rgba(79,213,97,0.6250875350140056) 100%);
+}
+.form-label{
+    font-family: "Times New Roman", Times, serif;
+    color: darkgray;
+}
+
+table, td, th {
+    border: 1px solid green;
+    
+    padding: 8px;
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    background-color:#ddd;
+    margin-top: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+.container{
+    
+    border: 1px solid green;
+    
+    padding: 8px;
+
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    background-color:#ddd;
+    margin-top: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;   
+}
+
