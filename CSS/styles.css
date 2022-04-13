@@ -6,9 +6,21 @@
     }
  
 img {
- border: 9px double green  ;
+ border: 9px double rgb(233, 113, 44)  ;
 
  
+}
+.options{
+    text-align: center;
+    width: 200px;
+    padding: 5px;
+    border: 2px solid gray;
+    margin: 4;
+    
+      
+}
+.menubar{
+    align-items: center;
 }
 .center{
     display: flex;
@@ -22,7 +34,7 @@ img {
 
     text-align: center;
     font-family: "Times New Roman", Times, serif;
-    color:green;
+    color:rgb(8, 5, 20);
     
 }
 .title2{
@@ -42,7 +54,7 @@ img {
     width: 1000px;
     border: 3px 3px #000;
     background: rgb(17,79,4);   
-    background: linear-gradient(180deg, rgba(17,79,4,1) 0%, rgba(44,153,29,1) 73%, rgba(79,213,97,0.6250875350140056) 100%);
+    background: linear-gradient(180deg, rgb(8, 5, 20) 0%, rgb(41, 28, 102) 73%, rgba(79, 88, 213, 0.625) 100%);
 }
 .form-label{
     font-family: "Times New Roman", Times, serif;
@@ -50,7 +62,7 @@ img {
 }
 
 table, td, th {
-    border: 1px solid green;
+    border: 1px solid rgb(8, 5, 20);
     
     padding: 8px;
 }
