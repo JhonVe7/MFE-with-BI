@@ -5,6 +5,7 @@
         <title>Modulo de Facturación D&J</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script>src="https//cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"</script>
         <script type="text/javascript" src="./js/forms.js"></script>
        <!-- <script src="/Scripts/autoNumeric/autoNumeric.min.js" type="text/javascript"></script>-->
         <link rel="stylesheet" href="CSS/styles.css">
@@ -23,7 +24,7 @@
             <h1 class="title">Emisión de Facturas </h1>
         </section>
         <div class="form1">        
-              <!--Inicio de seccion-->
+              <!--Inicio de seccion de control-->
               <section>
                 <div class="container">
                     
@@ -67,6 +68,9 @@
                                 <option value="cuota-fija">Credito con Cuota fija</option>
                                 <option value="cuota-gracia">Credito con periodo de gracia Muerto</option>  
                             </select>
+                            <div>
+                              <input class="options" type= "button" value= "consultar" onclick="selectFunction()">
+                          </div>
                         </div>
                         <div class="col">
                             Fecha de facturación
@@ -82,17 +86,21 @@
                             </form>
                         </div>
                     </div>
-                    <div>
-                        <input class="options" type= "button" value= "consultar" onclick="selectFunction()">
-                    </div>
+                    
                   </div>
               </section>
 
-               <!--fin de seccion-->
+              <!--fin de seccion de control-->
 
-              <section class="u-clearfix u-section-1" id="sec-cf56">
-                <div class="u-clearfix u-sheet u-sheet-1">   
-                  <div class="u-expanded-width u-table u-table-responsive u-table-1">
+              <script>
+                console.log("Funciona");
+                var doc = new jsPDF();
+                doc.text("hello world!",10 ,10);
+              </script>
+              <!--inicio de seccion de Muestra de Datos-->
+              <section  >
+                <div >   
+                  <div >
                     <table class="u-table-entity">
                       <colgroup>
                         <col width="16.6%">
@@ -102,53 +110,54 @@
                         <col width="16.6%">
                         <col width="16.6%">
                       </colgroup>
-                      <thead class="u-palette-4-base u-table-header u-table-header-1">
-                        <tr style="height: 21px;">
-                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Codigo</th>
-                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Detalles</th>
-                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Proceso</th>
-                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Costo</th>
-                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Descuento%</th>
-                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Importe</th>
+                      <thead>
+                        <tr>
+                          <th >Codigo</th>
+                          <th >Detalles</th>
+                          <th >Proceso</th>
+                          <th >Costo</th>
+                          <th >Descuento%</th>
+                          <th >Importe</th>
                         </tr>
                       </thead>
-                      <tbody class="u-table-body">
-                        <tr style="height: 75px;">
-                          <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-7">PL-001</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">analisis celulares con indices de bacterias</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">hemograma</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">259.000.00</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">0.0%</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell"> 259.000.00</td>
+                      <tbody >
+                        <tr>
+                          <td >PL-001</td>
+                          <td >analisis celulares con indices de bacterias</td>
+                          <td >hemograma</td>
+                          <td >259.000.00</td>
+                          <td >0.0%</td>
+                          <td > 259.000.00</td>
+                        </tr>
+                        <tr>
+                          <td >PL-002</td>
+                          <td >Detecion de infecciones</td>
+                          <td >urianalisis&nbsp;</td>
+                          <td >49.000.00</td>
+                          <td >0.0%</td>
+                          <td > 49.000.00</td>
                         </tr>
                         <tr style="height: 76px;">
-                          <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-13">PL-002</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">Detecion de infecciones</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">urianalisis&nbsp;</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">49.000.00</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">0.0%</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell"> 49.000.00</td>
+                          <td >pL-003</td>
+                          <td >cantidad de urea en la sangre</td>
+                          <td >perfil renal</td>
+                          <td >19.000.00</td>
+                          <td >0.0%</td>
+                          <td > 19.000.00</td>
                         </tr>
                         <tr style="height: 76px;">
-                          <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-19">pL-003</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">cantidad de urea en la sangre</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">perfil renal</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">19.000.00</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell">0.0%</td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell"> 19.000.00</td>
-                        </tr>
-                        <tr style="height: 76px;">
-                          <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-25"></td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                          <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
+                          <td ></td>
+                          <td ></td>
+                          <td ></td>
+                          <td ></td>
+                          <td ></td>
+                          <td ></td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
-              </section>
+              </section>  
+              <!--fin de seccion de Muestra de Datos-->
     </body>
 </html>

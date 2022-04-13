@@ -1,3 +1,5 @@
+
+
 /*
 var aux = document.getElementById("seleccion_credito")
 switch (aux) {

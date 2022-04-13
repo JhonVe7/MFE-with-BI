@@ -41,7 +41,7 @@ img {
     text-align: center;
     font-family: "Times New Roman", Times, serif;
     color: white;
-    text-shadow: 5px 5px 5px green;
+    text-shadow: 5px 5px 5px rgb(8, 5, 20);
 }
 .form1{
     padding-top: 5%;
@@ -53,7 +53,7 @@ img {
     align-content: center;
     width: 1000px;
     border: 3px 3px #000;
-    background: rgb(17,79,4);   
+    background: rgb(8, 5, 20);   
     background: linear-gradient(180deg, rgb(8, 5, 20) 0%, rgb(41, 28, 102) 73%, rgba(79, 88, 213, 0.625) 100%);
 }
 .form-label{
@@ -80,7 +80,7 @@ table {
 }
 .container{
     
-    border: 1px solid green;
+    border: 1px solid rgb(8, 5, 20);
     
     padding: 8px;
 
