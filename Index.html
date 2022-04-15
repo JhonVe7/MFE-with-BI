@@ -29,13 +29,14 @@
                 <div class="container">
                     
                     <!--botones-->
+
                     <div class="menubar">
                         <input class="options" type= "button" value= "Nueva factura" onclick="selectFunction()">
                         <input class="options" type= "button" value= "Anular" onclick="selectFunction()">
-                        <input class="options" type= "button" value= "Imprimir" onclick="selectFunction()">
+                        <input class="options" type= "button" value= "Imprimir" onclick="printFact()">
                         <input class="options" type= "button" value= "Generar Cobranza" onclick="selectFunction()">
                     </div>
-
+                  
                     <!--menu de consulta-->
                     
                     <div class="row">
@@ -92,14 +93,7 @@
 
               <!--fin de seccion de control-->
 
-              <script>
-               
-
-                var doc = new jsPDF();
-                doc.text("  ", 10 , 10);
-                doc.save("Factura_MFA.pdf");
-
-              </script>
+              
               <!--inicio de seccion de Muestra de Datos-->
               <section  >
                 <div >   
@@ -162,5 +156,48 @@
                 </div>
               </section>  
               <!--fin de seccion de Muestra de Datos-->
+
+              <!--MOSTRAR DATOS DE BD-->
+<script>
+  //Inicia la  funcion al abrir la página
+  $(document).ready(function() {
+      cartelera();//ejecucion de la  función
+  
+      function cartelera(){//Funcion para mostrar todos los datos existentes
+          $.ajax({
+              type: 'GET', //GET para traer información
+              url: 'recepcion.php', //Archivo de consulta
+              success: function(response){//Si hay exito espera rta del svr
+                  //console.log(response);
+                  let jugador = JSON.parse(response);//Archivo JSON a string (respuesta)
+                  let plantilla = ''//Variable vacía para mostrar los datos
+  
+                  // iteramos sobre todos arreglos
+                  jugador.forEach(cartelera =>{
+                      //html para mostrar en tabla: selección de la función clientes + el nombre del array del backend(clientes.php)
+                      plantilla +=`
+                          <tr player=${cartelera.id}>
+                              <td>${cartelera.id}</td>
+                              <td>${cartelera.pelicula}</td>
+                              <td>${cartelera.director}</td>
+                              <td>${cartelera.estreno}</td>
+                              <td>${cartelera.sinopsis}</td>
+                              <td>${cartelera.genero}</td>
+                              <td><input class="actualizar" type="image" src="https://images.vexels.com/media/users/3/131901/isolated/lists/30a7829a3622fd3b61b12fcc47391cb0-recargar-el-icono-del-circulo-de-la-flecha.png" width="50px" heigth="50px"></td>
+                          </tr>
+                      `
+                  });
+                  $('#bodyTable').html(plantilla);//Tabla para mostrar datos
+              }
+          })
+      }
+  
+    
+  
+  
+      
+  
+  });
+  </script>
     </body>
 </html>
