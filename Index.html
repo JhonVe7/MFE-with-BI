@@ -11,8 +11,9 @@
         <link rel="stylesheet" href="CSS/styles.css">
     </head>
     <body>
-        <section>
-            
+
+      <!--Logo y pie de pagina-->
+        <section> 
            <div class="center"> 
                 <img 
                     src="Imagenes/logo.PNG"
@@ -23,71 +24,95 @@
             </div>
             <h1 class="title">Emisión de Facturas </h1>
         </section>
+  
         <div class="form1">        
               <!--Inicio de seccion de control-->
               <section>
                 <div class="container">
                     
-                    <!--botones-->
+                    <!--Menu de opciones-->
 
                     <div class="menubar">
-                        <input class="options" type= "button" value= "Nueva factura" onclick="selectFunction()">
-                        <input class="options" type= "button" value= "Anular" onclick="selectFunction()">
-                        <input class="options" type= "button" value= "Imprimir" onclick="printFact()">
-                        <input class="options" type= "button" value= "Generar Cobranza" onclick="selectFunction()">
-                    </div>
-                  
-                    <!--menu de consulta-->
-                    
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" placeholder="Nombres del cliente" class="form-control" id="e-anual" aria-describedby="basic-addon3">
-                        </div>
-                        <div class="col">
-                            <input type="text" placeholder="N° de Documento" class="form-control" id="nom-anual" aria-describedby="basic-addon3">
-                        </div>
-                        <div class="col">
-                            <input type="text" placeholder="Orden de compra"  class="form-control" id="periodo-vencido" aria-describedby="basic-addon3">
-                        </div>
+                        <!--nueva facturación--><input class="options" type= "button" value= "Nueva factura" onclick="clean()">
+                        <!--elimina procesos --><input class="options" type= "button" value= "Anular" onclick="selectFunction()">
+                        <!--imprime la factura--><input class="options" type= "button" value= "Imprimir" onclick="printFact()">
+                        <!--realiza cobro--><input class="options" type= "button" value= "Generar Cobranza" onclick="selectFunction()">
                     </div>
                     
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" placeholder="Codigo de proceso" class="form-control" id="e-anual" aria-describedby="basic-addon3">
+                    <form clas="myForm">
+
+                      <!--seccion del cliente-->
+                      <div class="Cliente">
+                        <label> Cliente </label> 
+                        <div class="row">
+
+                            <div class="col">
+                                <input type="text" placeholder="Nombres del cliente" class="form-control" id="c-name" aria-describedby="basic-addon3">
+                            </div>
+
+                            <div class="col">
+                                <input type="text" placeholder="N° de Documento" class="form-control" id="c-id" aria-describedby="basic-addon3">
+                            </div>
+
+                            <div class="col">
+                              <select class="form-select" id="seleccion_pago" name="Credito" >
+                                <option value="pago-select" >Seleccionar medio de pago</option>
+                                <option value="pago-efectivo">Efectivo</option>
+                                <option value="pago-tarjeta">Credito o debito</option>  
+                              </select>
+                            </div>
+                          
                         </div>
-                        <div class="col">
-                            <input type="text" placeholder="Referencia de la factura" class="form-control" id="nom-anual" aria-describedby="basic-addon3">
-                        </div>
-                        <div class="col">
-                            <input type="text" placeholder="Tipo de proceso " class="form-control" id="periodo-vencido" aria-describedby="basic-addon3">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <select class="form-select" id="seleccion_credito"  name="Credito" >
-                                <option value="cuota-select" >Seleccionar medio de pago</option>
-                                <option value="cuota-fija">Efectivo</option>
-                                <option value="cuota-gracia">Credito o debito</option>  
-                            </select>
-                            <div>
-                              <input class="options" type= "button" value= "consultar" onclick="selectFunction()">
-                          </div>
-                        </div>
-                        <div class="col">
-                            Fecha de facturación
-                            <form class="center" action="" method="">
-                                <input type="date"> 
-                            </form>
-                        </div>
-                        <div class="col">
-                            fecha limite de pago
-                            <form class="center" action="" method="">
+
+                      </div>
+
+                      <!--seccion de compra-->
+                      <div class="Compra">
+                        <label> Compra </label> 
+
+                        <div class="row">
+                            <div class="col">
                                 
-                                <input type="date"> 
-                            </form>
+                                <input type="text" placeholder="orden de compra" class="form-control"  aria-describedby="basic-addon3">
+                            </div>
+                            
+                            <div class="col">
+                                <select class="form-select" id="seleccion_pago" name="Credito" >
+                                  <option value="proceso-select" >Seleccionar proceso</option>
+                                  <option value="proceso-rutina">Examen de laboratirio rutinario</option>
+                                  <option value="proceso-Biologa">Bilogia molecular</option>  
+                                </select>
+                            </div>
+
+                            <div class="col">
+                              <input class="options" type= "button" value= "Agregar" onclick="selectFunction()">
+                            </div>
                         </div>
-                    </div>
-                    
+
+                        <div class="row">
+
+                            <div class="col">
+                              <label>Fecha de facturación</label> 
+                              <form  action="" method=""> 
+                                <input type="date"> 
+                              </form>
+                            </div>
+                            <div class="col">
+                              <label>Fecha limite de pago</label>
+                              <form  action="" method=""> 
+                                <input type="date"> 
+                              </form>
+                            </div>
+                            <div class="col">
+                              <label>Dias</label>
+                              <form  action="" method="">
+                                  <input type="datetime"> 
+                              </form>
+                            </div>
+
+                        </div>
+                      </div>
+                    </form>
                   </div>
               </section>
 
@@ -118,22 +143,6 @@
                         </tr>
                       </thead>
                       <tbody >
-                        <tr>
-                          <td >PL-001</td>
-                          <td >analisis celulares con indices de bacterias</td>
-                          <td >hemograma</td>
-                          <td >259.000.00</td>
-                          <td >0.0%</td>
-                          <td > 259.000.00</td>
-                        </tr>
-                        <tr>
-                          <td >PL-002</td>
-                          <td >Detecion de infecciones</td>
-                          <td >urianalisis&nbsp;</td>
-                          <td >49.000.00</td>
-                          <td >0.0%</td>
-                          <td > 49.000.00</td>
-                        </tr>
                         <tr style="height: 76px;">
                           <td >pL-003</td>
                           <td >cantidad de urea en la sangre</td>
@@ -161,28 +170,28 @@
 <script>
   //Inicia la  funcion al abrir la página
   $(document).ready(function() {
-      cartelera();//ejecucion de la  función
+      catalogo();//ejecucion de la  función
   
-      function cartelera(){//Funcion para mostrar todos los datos existentes
+      function catalogo(){//Funcion para mostrar todos los datos existentes
           $.ajax({
               type: 'GET', //GET para traer información
-              url: 'recepcion.php', //Archivo de consulta
+              url: 'Recepcion.php', //Archivo de consulta
               success: function(response){//Si hay exito espera rta del svr
                   //console.log(response);
                   let jugador = JSON.parse(response);//Archivo JSON a string (respuesta)
                   let plantilla = ''//Variable vacía para mostrar los datos
   
                   // iteramos sobre todos arreglos
-                  jugador.forEach(cartelera =>{
+                  jugador.forEach(catalogo =>{
                       //html para mostrar en tabla: selección de la función clientes + el nombre del array del backend(clientes.php)
                       plantilla +=`
-                          <tr player=${cartelera.id}>
-                              <td>${cartelera.id}</td>
-                              <td>${cartelera.pelicula}</td>
-                              <td>${cartelera.director}</td>
-                              <td>${cartelera.estreno}</td>
-                              <td>${cartelera.sinopsis}</td>
-                              <td>${cartelera.genero}</td>
+                          <tr player=${catalogo.codigo}>
+                              <td>${catalgo.codigo}</td>
+                              <td>${catalogo.detalles}</td>
+                              <td>${catalogo.proceso}</td>
+                              <td>${catalogo.costo}</td>
+                              <td>${catalogo.descuento}</td>
+                              <td>${catalogo.importe}</td>
                               <td><input class="actualizar" type="image" src="https://images.vexels.com/media/users/3/131901/isolated/lists/30a7829a3622fd3b61b12fcc47391cb0-recargar-el-icono-del-circulo-de-la-flecha.png" width="50px" heigth="50px"></td>
                           </tr>
                       `

@@ -7,3 +7,6 @@ function printFact(){
     doc.save("Factura_MFA.pdf");
   }
 
+function clean(){
+  document.getElementById("myForm").reset();
+}

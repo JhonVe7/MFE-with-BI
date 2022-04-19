@@ -3,7 +3,7 @@
 $server = "localhost";
 $user = "root";
 $pass = "";
-$bd = "proyecto_net";
+$bd = "catalogo_mfe";
 
 //Creacion la conexión
 $conexion = mysqli_connect($server, $user, $pass,$bd) 
