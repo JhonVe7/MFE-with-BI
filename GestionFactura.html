@@ -1,0 +1,300 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+      <meta charset=" utf=8 ">
+      <title>Gestión de Facturas </title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+      <script type="text/javascript" src="./js/forms.js"></script>
+      <link rel="stylesheet" href="CSS/styles.css">
+      <link rel="icon" href="Imagenes/logo.png">
+  </head>
+
+  
+  <body>
+    
+ 
+    <!--Barra de navegación-->
+    <div class="topnav">
+      <a class="active" href="Menu_Solicitudes.html">Home</a>
+      <a class="active" href="ConsultaSolicitud.html">Consultar</a>
+      <a class="active" href="Index.html">Logout</a>
+    </div>
+
+    <!--Logo y pie de pagina-->
+    <div class="center"> 
+        <img 
+          src="Imagenes/logo.png"
+          alt ="logo_bank"
+          width="240"
+          height="250"      
+        />
+      </div>
+    
+    <h1 class="title"> Facturaciones D&J </h1>
+  
+
+    <div class="form1">        
+
+
+      <h2 class="text_form">Gestión de facturas </h2>
+      <!--Inicio de seccion de control-->
+      <section>
+                    
+          <form class="myForm">
+
+            <!--seccion del cliente-->
+            
+            <!--seccion de compra-->
+            <div class="Compra">
+              <label class="text_form"> Ingrese numero de solicitud:  </label> 
+
+              <div class="row">
+                
+                <div class="col">         
+                  <input type="text" id="" placeholder="Numero de solicitud" class="form-control"  >
+                </div>
+                            
+                
+
+                <div class="col">
+                  <input class="options" type= "button" value= "Consultar" onclick="selectFunction()">
+                </div>
+              </div>
+
+              <div class="row">
+
+                
+              </div>
+            
+            </div>
+          
+          </form>
+        
+
+      </section>
+
+      <h2 class="text_form">Datos de Factura </h2>
+      <!--Inicio de seccion de control-->
+      <section>
+          
+          <form class="myForm">
+
+            <!--seccion del cliente-->
+            <div class="Cliente">
+              <label class="text_form"> Cliente </label> 
+              <div class="row">
+
+                <div class="col">
+                  <input type="text" placeholder="Nombre(s)" class="form-control" id="c-name" aria-describedby="basic-addon3" required>
+                </div>
+                <div class="col">
+                  <input type="text" placeholder="Apellidos" class="form-control" id="c-lastName" aria-describedby="basic-addon3" required>
+                </div>
+                <div class="col">
+                  <input type="text" placeholder="N° de Documento" class="form-control" id="c-id" aria-describedby="basic-addon3" required>
+                </div>
+                <div class="col">
+                  <input type="text" placeholder="Edad" class="form-control" id="c-Age" aria-describedby="basic-addon3" required>
+                </div>
+
+                <div class="col">
+                  <select class="form-select" id="seleccion_pago" name="Credito" >
+                    <option value="pago-select" >Medio de Pago</option>
+                    <option value="pago-efectivo">Efectivo</option>
+                    <option value="pago-tarjeta">Credito o debito</option>  
+                  </select>
+                </div>
+
+              </div>
+            </div>
+            
+            <!--seccion de compra-->
+            <div class="Compra">
+              <label class="text_form"> Compra </label> 
+
+              <div class="row">
+                
+                <div class="col">         
+                  <input type="text" id="" placeholder="Numero de solicitud" class="form-control"  >
+                </div>
+                            
+                <div class="col">
+                  <select class="form-select" id="seleccion_pago" name="Credito" >
+                    <option value="proceso-select" >Seleccionar proceso</option>
+                    <option value="proceso-rutina">Examen de laboratirio rutinario</option>
+                    <option value="proceso-Biologa">Bilogia molecular</option>  
+                  </select>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col">
+                  <label class="text_form">Fecha de facturación: </label> 
+                  <div class="text_form"id="current_date">
+                  <script >document.getElementById("current_date").innerHTML = currentDay();</script>
+                    
+                
+                </div>
+
+              </div>
+            
+            </div>
+          
+          </form>
+        
+
+      </section>
+
+      <!--fin de seccion de control-->
+
+              
+      <!--inicio de seccion de Muestra de Datos-->
+      <section>
+        <div>   
+          <div>
+            
+            
+            <table id="myTable">
+
+              <thead>
+                <tr>
+                  <th >Codigo</th>
+                  <th >Detalles</th>
+                  <th >Proceso</th>
+                  <th >Costo</th>
+                  <th >iva %</th>
+                  <th >Importe</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td >pL-003</td>
+                  <td >cantidad de urea en la sangre</td>
+                  <td >perfil renal</td>
+                  <td >19.000.00</td>
+                  <td >0.0%</td>
+                  <td > 19.000.00</td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                  <td >19.000.00</td>
+                  <td >0.0%</td>
+                  <td > 19.000.00</td>
+                </tr>
+                <tr>
+                  <td>Ernst Handel</td>
+                  <td>Roland Mendel</td>
+                  <td>Austria</td>
+                  <td >19.000.00</td>
+                  <td >0.0%</td>
+                  <td > 19.000.00</td>
+                </tr>
+                <tr>
+                  <td>Island Trading</td>
+                  <td>Helen Bennett</td>
+                  <td>UK</td>
+                  <td >19.000.00</td>
+                  <td >0.0%</td>
+                  <td > 19.000.00</td>
+                </tr>
+                <tr>
+                  <td>Laughing Bacchus Winecellars</td>
+                  <td>Yoshi Tannamuri</td>
+                  <td>Canada</td>
+                  <td >19.000.00</td>
+                  <td >0.0%</td>
+                  <td > 19.000.00</td>
+                </tr>
+                <tr>
+                  <td>Magazzini Alimentari Riuniti</td>
+                  <td>Giovanni Rovelli</td>
+                  <td>Italy</td>
+                  <td >19.000.00</td>
+                  <td >0.0%</td>
+                  <td > 19.000.00</td>
+                </tr>
+              </tbody> 
+              
+            </table>
+          </div>  
+          
+        </div>
+        
+      </section>
+      <!--fin de seccion de Muestra de Datos-->
+
+      <!--Menu de opciones-->
+
+      <div class="button_Menu">
+      
+        <!--nueva facturación--><input class="options" type= "button" value= "Nueva factura" onclick="clean()">
+        <!--generar solicitud--><input class="options" type= "button" value= "Visualizar" onclick="selectFunction()">
+        <!--imprime la factura--><input id="downloadPDF" class="options" type= "button" value= "Exportar" onclick="printFact()">
+      
+      
+      </div>
+
+    </div>
+
+    <div style="height: 100px ;">
+
+    </div>
+    
+    <!--MOSTRAR DATOS DE BD-->
+    
+    <script>
+
+    //Inicia la  funcion al abrir la página
+    $(document).ready(function() {
+     
+      compra();//ejecucion de la  función
+  
+      function compra(){//Funcion para mostrar todos los datos existentes
+        $.ajax({
+         
+          type: 'GET', //GET para traer información
+          url: 'Recepcion.php', //Archivo de consulta
+         
+          success: function(response){//Si hay exito espera rta del svr
+            //console.log(response);
+            
+            let jugador = JSON.parse(response);//Archivo JSON a string (respuesta)
+            let plantilla = ''//Variable vacía para mostrar los datos
+  
+            // iteramos sobre todos arreglos
+            jugador.forEach(compra =>{
+            
+              //html para mostrar en tabla: selección de la función clientes + el nombre del array del backend(clientes.php)
+              plantilla +=`
+                <table>
+                    <tr player=${compra.codigo}>
+                      <td>${compra.codigo}</td>
+                      <td>${compra.proceso}</td>
+                      <td>${compra.detalles}</td>
+                      <td>${compra.costo}</td>
+                      <td>${compra.descuento}</td>
+                      <td>${compra.importe}</td>
+                      <td><input class="actualizar" type="image" src="https://images.vexels.com/media/users/3/131901/isolated/lists/30a7829a3622fd3b61b12fcc47391cb0-recargar-el-icono-del-circulo-de-la-flecha.png" width="50px" heigth="50px"></td>
+                    </tr>
+                </table
+              `
+            });
+            $('#bodyTable').html(plantilla);//Tabla para mostrar datos
+          }
+        })
+      }
+    });
+    </script>
+    
+  </body>
+
+</html>
